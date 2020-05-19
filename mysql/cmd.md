@@ -6,3 +6,6 @@
    
    参考url:https://www.cnblogs.com/ivictor/p/5142809.html
    
+2.设置远程访问权限
+  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+   

@@ -8,4 +8,7 @@
    
 2.设置远程访问权限
   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+
+3.修改密码
+  https://blog.csdn.net/sitebus/article/details/96111179
    

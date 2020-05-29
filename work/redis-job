@@ -1,0 +1,21 @@
+整理下之前使用job 碰到的一些情况：
+-------
+查看job注册信息
+127.0.0.1:6379> hget antia:channel_arena_season_init:task init_season_9
+"{\"name\":\"init_season_9\",\"args\":[\"9\",\"1590850500000\",\"10.0.112.97_9001\"],\"runAt\":\"2020-05-30T22:55:00+08:00\",\"period\":0}"
+status 显示 waiting，等待触发中
+127.0.0.1:6379> hget antia:channel_arena_season_init:status init_season_9
+"waiting"
+------
+job 不存在活着已执行完成，输出 nil
+127.0.0.1:6379> hget antia:channel_arena_season_init:status init_season_1
+(nil)
+-------------------------
+job 执行时返回err了
+127.0.0.1:6379> hget antia:reward:status xxx
+"failed:SC_ErrInnerLogic"
+-----------------
+job 触发式没有匹配到handler，是漏掉注册handler所致。之前竞技场时碰到，job注册了，但是重启服务器后漏掉重新注册handler了。导致job执行时找不到handler
+127.0.0.1:6379> hget antia:start:status xxx
+"failed:unknown job: xxxx"
+-----------------------

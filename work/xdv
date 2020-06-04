@@ -4,4 +4,8 @@ https://bitbucket.org/puzzleplusservice/puzzle-gomt-tools/src/master/
 
 都用的develop分支
 
-xdb-gen运行方法是：   运行main，然后sh ./scripts/sample.sh  就可以跑testcase
+xdb-gen运行方法是：   
+  1.运行main，
+  2.sh ./scripts/sample.sh 
+  3.就可以跑testcase
+

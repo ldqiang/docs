@@ -1,0 +1,7 @@
+https://bitbucket.org/puzzleplusservice/puzzle-gomt/
+
+https://bitbucket.org/puzzleplusservice/puzzle-gomt-tools/src/master/
+
+都用的develop分支
+
+xdb-gen运行方法是：   运行main，然后sh ./scripts/sample.sh  就可以跑testcase

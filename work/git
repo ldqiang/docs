@@ -1,0 +1,5 @@
+将staging分支合并到develop分支：
+    1.create pr
+    2.在develop分支上使用 git pull origin release/staging
+    3.merge处理然后git push
+    4.pr已经生成了

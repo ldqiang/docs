@@ -1,0 +1,1 @@
+1. mq,etcd的接口整合，参考 goMicro的broker 或者 sqlx的driver

@@ -1,1 +1,8 @@
 1. mq,etcd的接口整合，参考 goMicro的broker 或者 sqlx的driver
+
+2.
+  6.15号开会记要： 内网负载均衡
+  TODO:jobWorker的动态注册的pubsub,存储jobName对应的hander映射
+  
+  热更新参考
+  https://github.com/bouk/monkey

@@ -1,0 +1,4 @@
+grant all privileges  on *.* to root@'%' identified by "123147";
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123147' WITH  GRANT OPTION;  
+FLUSH   PRIVILEGES; 

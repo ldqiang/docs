@@ -3,3 +3,115 @@
     2.在develop分支上使用 git pull origin release/staging
     3.merge处理然后git push
     4.pr已经生成了
+
+
+https://www.jianshu.com/p/811b07b129e8
+
+1.查看所在目录的分支
+$ git branch -a
+
+2.切换到origin/feature/activity分支命令本地分支为”feature/activity”
+$ git checkout -b feature/activity
+
+3.git alias
+
+4.分支合并
+   Git merge —no-commit origin/develop
+
+5.删除本地分支
+   Git branch -D feature/activity
+6.删除远程分支
+   Git push origin  - -delete  origin/feature/activity
+
+1.git branch -a查看远程分支，红色的是本地远程远程分支记录。
+
+2.执行下面命令查看远程仓库分支和本地仓库的远程分支记录的对应关系：
+
+  git remote show origin  
+
+3.会看到：
+ 
+ refs/remotes/origin/远程仓库已经删除的分支名              stale (use 'git remote prune' to remove)
+
+ 其中：
+
+ Local refs configured for 'git push':  命令下面的分支是本地仓库的远程分支记录中仍存在的分支，但远程仓库已经不存在。
+
+4.输入git remote prune origin来删除远程仓库已经删除过的分支
+
+5.验证 git branch -a
+
+  此时可以看到本地远程分支记录已经和远程仓库保持一致了。
+
+# Windows QA运行testin踩坑记录
+1. fatal: unable to access 'https://git.apache.org/thrift.git/': Failed to connect to git.apache.org port 443: Timed out
+修改go.mod：replace git.apache.org/thrift.git => github.com/apache/thrift v0.0.0-20180902110319-2566ecd5d999
+2. bitbucket弹窗
+修改git config
+git config --global url."git@bitbucket.org:".insteadOf "https://bitbucket.org/"
+3. go: missing Mercurial command.
+安装mercurial：https://mercurial.selenic.com/wiki/Download
+4. make conf问题
+bitbucket.org/funplus/golib 修改为 bitbucket.org/puzzleplusservice/golib
+
+myql
+http://www.jquerycn.cn/a_14848
+
+Mysql 主键性能测试
+https://blog.csdn.net/l1028386804/article/details/51140577
+
+使用go md5生成64位目前保证了唯一
+
+//  根据字符串生成唯一hash code
+func GenHashCode(str string) uint64{
+   h := fnv.New64a()
+   h.Write([]byte(str))
+   return h.Sum64()
+}
+
+git回退到某个历史版本
+ 
+ 
+一、git怎么回退到某个历史版本
+1. 首先在 code.aliyun.com 的找到你所要回滚的分支提交记录，点击右侧红框中的连接即可得到 提交记录编号，截图如下：
+
+
+ 
+2. 在Terminal 或者git控制条 执行 回退到某个版本命令
+git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+
+ 
+ 
+3. 强制提交到master_ptu分支（具体需要提交到哪个分支请酌情修改，此例为提交到master_ptu分支）
+git push -f -u origin master_ptu
+ 
+二、回退时的注意事项
+1. 执行以上脚本前 一定记得 做个 分支的备份
+2. 涉及到多个分支合并后 又想回滚代码的，请注意提交记录编号的选择，请一定选择 当前分支的提交记录编号，否则可能会回滚成其它分支的编号，例如我打算回滚到 master_ptu的某个历史版本：
+git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 一定得是 直接在master_ptu上的直接提交记录编号，否则会回滚成 其它分支的某个版本。
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+执行以下脚本前 一定记得 做个 分支的备份
+ 
+ 
+回退到某个版本（最后的一串字符是 版本变更编号，通常这个编号可以在 git 后台看到，也可以通过  $ git log -300 显示最近300次提交记录）
+git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+ 
+强制提交到master分支（具体哪个分支请酌情修改）
+git push -f -u origin master
+ 
+ 
+ 
+或者更简单的做法(恢复上一个版本)是：
+git reset --hard HEAD~1 
+git add . 
+git commit ‘roll-back’ 
+git push -f origin mas
+

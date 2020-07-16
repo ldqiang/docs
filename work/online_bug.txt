@@ -1,0 +1,2 @@
+1.线上ipv6失败
+  AddressFamilyNotSupport dns 用解析的addressFamily

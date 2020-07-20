@@ -115,3 +115,15 @@ git add .
 git commit ‘roll-back’ 
 git push -f origin mas
 
+1. 用diff导出差异文件
+
+git diff b > diff
+这里的b是别人机器上我要同步的所有代码所在根目录
+
+2. 用apply命令同步差异
+
+跳转到本机的相同目录执行下面命令
+git apply --reject diff
+其中 diff是第一步导出的差异文件
+
+参考：https://blog.csdn.net/Ls4034/article/details/72958855
